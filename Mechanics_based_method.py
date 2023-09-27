@@ -14,8 +14,12 @@ nu_13=results[:,5] #nu13
 voids=results[:,0] #Total Volume of Voids
 theta=np.multiply(results[:,1],2) #Alignment
 pores_voids=results[:,2]  #Pores
+###Each of the functions below take E_11 (MPa), E_33 (MPa), and Poisson's Ratio nu_13 as inputs
+#######Voids Volume Fraction Function##############
 Voids=LinearNDInterpolator((E_11, E_33, nu_13), voids)
+#######Theta_t Function##############
 Theta_t=LinearNDInterpolator((E_11, E_33, nu_13), theta)
+#######Pores/Voids Fraction Function##############
 Pores_Voids_Ratio=LinearNDInterpolator((E_11,E_33, nu_13), pores_voids)
 
 
